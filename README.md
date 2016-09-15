@@ -160,6 +160,8 @@ Overview
 * [safe] (docs/jinja_functions.md#safe) - Make all potentionally dangerous chars safe. - safety is a illusion, so beware!
 * [slugify] (docs/string_util_functions.md#slugify) - Transform text into an ascii slug which can be used in safely in URLs.
 * [splice] (docs/string_util_functions.md#splice) - Return the string right justified in a string of length width.
+* [split] (docs/string_util_functions.md#split) - Split a string using a fixed separator
+* [split_regex] (docs/string_util_functions.md#split_regex) - Split a string using a regexp
 * [sprintf] - see [format] (docs/jinja_functions.md#format)
 * [starts_with] (docs/string_util_functions.md#starts_with) - Checks whether the string begins with the needle at position (default: 0).
 * [string] (docs/jinja_functions.md#string) - Make a string unicode.
@@ -254,6 +256,7 @@ License and Author
 ==================
 
 Author:: [Alexander Jäger](https://github.com/lxhunter)
+Splint function are from [Tim Raasveld](https://github.com/timraasveld/ansible-string-split-filter)
 
 Copyright 2014
 

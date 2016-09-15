@@ -159,8 +159,19 @@ Return a copy of the string with trailing characters removed. If chars is omitte
 
 Adds/removes substring to/from string.
 
-
 [example](https://github.com/lxhunter/ansible-filter-plugins/blob/master/tests/string_util_functions.yml#L138-L142)
+
+#### split
+###### method: splice(string, separator=' ')
+> custom implementation / needs to be installed
+
+Split a string using a fixed separator
+
+#### split_regex
+###### method: splice_regex(string, separator='\s+')
+> custom implementation / needs to be installed
+
+Split a string using a regexp
 
 #### starts_with
 ###### method: starts_with(haystack, needle, beg=0, end=None)

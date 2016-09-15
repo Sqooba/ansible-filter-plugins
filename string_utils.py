@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from ansible import errors
 import unittest
 import re
 import unicodedata
@@ -200,6 +201,26 @@ def splice(string, index, how_many, substring):
     sanitzed_substring = _string_sanity_check(substring)
     return sanitzed_string[:index] + sanitzed_substring + sanitzed_string[index + how_many:]
 
+
+''' Split a string into a list using a fixed separator '''
+
+
+def split_string(string, separator=' '):
+    try:
+        return string.split(separator)
+    except Exception, e:
+        raise errors.AnsibleFilterError('split plugin error: %s, provided string: "%s"' % str(e),str(string) )
+
+
+''' Split a string into a list using a regexp '''
+
+
+def split_regex(string, separator_pattern='\s+'):
+    try:
+        return re.split(separator_pattern, string)
+    except Exception, e:
+        raise errors.AnsibleFilterError('split plugin error: %s, provided string: "%s"' % str(e),str(string) )
+
 ''' Checks whether the string begins with the needle at position (default: 0). '''
 
 
@@ -263,6 +284,7 @@ def unescape_html(haystack):
         .replace('&nbsp;', ' ') \
         .replace('&amp;', '&')
 
+
 # ---
 
 
@@ -289,6 +311,8 @@ class FilterModule(object):
             'rtrim': rtrim,
             'repeat': repeat,
             'splice': splice,
+            'split' : split_string,
+            'split_regex' : split_regex,
             'starts_with': starts_with,
             'successor': successor,
             'swap_case': swap_case,
